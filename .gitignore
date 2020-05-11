@@ -1,2 +1,3 @@
 
-*.ipynb
+*checkpoint.ipynb
+.ipynb_checkpoints

@@ -1,2 +1,10 @@
 *checkpoint.ipynb
 .ipynb_checkpoints
+*.csv
+*.iml
+*.xml
+*.json
+*.tfevents
+*.tsv
+*.h5
+*.zip

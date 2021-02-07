@@ -1,0 +1,38 @@
+## 快排
+### 快排1
+```python
+class Solution:
+    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+        def quickSort(alist):
+            if len(alist) < 2:
+                return alist
+            else:
+                pivot = alist[0]
+                less = [i for i in alist[1:] if i <= pivot]
+                great = [i for i in alist[1:] if i > pivot]
+            return quickSort(less) + [pivot] + quickSort(great)
+        res = quickSort(arr)
+        return res[:k]
+```
+
+### 快排2
+```python
+class Solution:
+    def getLeastNumbers(self, arr: List[int], k: int) -> List[int]:
+        def quickSort(arr, l, r):
+            if l >= r:
+                return
+            i, j = l, r
+            while i < j:
+                while i < j and arr[j] >= arr[l]:
+                    j -= 1
+                while i < j and arr[i] <= arr[l]:
+                    i += 1
+                arr[i], arr[j] = arr[j], arr[i]
+            arr[i], arr[l] = arr[l], arr[i]
+            quickSort(arr, l, i - 1)
+            quickSort(arr, i + 1, r)
+        
+        quickSort(arr, 0, len(arr) - 1)
+        return arr[:k]
+```

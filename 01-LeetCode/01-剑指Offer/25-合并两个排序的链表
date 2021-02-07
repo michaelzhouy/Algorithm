@@ -1,0 +1,39 @@
+# 合并两个排序的链表
+
+## 说明
+输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
+
+## 示例
+```
+输入：1->2->4, 1->3->4
+输出：1->1->2->3->4->4
+```
+
+## 解1
+```python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        # 伪节点同时赋值给dum和cur，一个留守节点dum，一个随着添加过程走cur，最后返回dummy
+        dum = cur = ListNode(0)
+        # 两个链表中只要有一个为空跳出循环
+        while l1 and l2:
+            # l2.val小，将l2添加到cur.next中，l2转下一个节点
+            if l1.val > l2.val:
+                cur.next = l2
+                l2 = l2.next
+            # l1.val小，将l1添加到cur.next中，l1转下一个节点
+            else:
+                cur.next = l1
+                l1 = l1.next
+            # cur转下一个节点
+            cur = cur.next
+        # l1或l2剩余的节点添加到cur.next中
+        cur.next = l1 if l1 else l2
+        return dum.next
+```

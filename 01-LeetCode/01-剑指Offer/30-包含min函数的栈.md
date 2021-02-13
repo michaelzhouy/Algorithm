@@ -36,7 +36,7 @@ class MinStack:
 
     def push(self, x: int) -> None:
         self.A.append(x)
-        # 
+        # 当栈B为空，或栈B的最后一个元素大于等于x
         if not self.B or self.B[-1] >= x:
             self.B.append(x)
         else:

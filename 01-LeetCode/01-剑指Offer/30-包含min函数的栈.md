@@ -2,7 +2,7 @@
 
 ## 说明
 
-定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。
+定义栈的数据结构, 请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中, 调用 min、push 及 pop 的时间复杂度都是 O(1)。
 
 ## 示例
 
@@ -22,8 +22,8 @@ minStack.min();   --> 返回 -2.
 ### 思路
 
 ### 复杂度
-1. 时间复杂度O(1)，push(), pop(), top(), min() 四个函数的时间复杂度均为常数级别。
-2. 空间复杂度O(N)，共有N个待入栈元素，辅助栈B需存储N个元素，使用O(N)额外空间。
+1. 时间复杂度O(1), push(), pop(), top(), min() 四个函数的时间复杂度均为常数级别。
+2. 空间复杂度O(N), 共有N个待入栈元素, 辅助栈B需存储N个元素, 使用O(N)额外空间。
 
 ```python
 class MinStack:
@@ -36,7 +36,7 @@ class MinStack:
 
     def push(self, x: int) -> None:
         self.A.append(x)
-        # 当栈B为空，或栈B的最后一个元素大于等于x
+        # 当栈B为空, 或栈B的最后一个元素大于等于x
         if not self.B or self.B[-1] >= x:
             self.B.append(x)
         else:

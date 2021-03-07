@@ -29,7 +29,7 @@ class Solution:
         elif n == 1:
             return x
         if n & 1 == 1: # 奇数
-            return x * self.myPow(x ** 2, n >> 1)
+            return x * self.myPow(x ** 2, n >> 1) # n >> 1 除以2
         elif n & 1 == 0: # 偶数
             return self.myPow(x ** 2, n >> 1)
 ```
